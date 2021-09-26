@@ -1,0 +1,68 @@
+﻿
+
+
+CREATE TABLE [dbo].[users] (
+    [userID]   NVARCHAR (50) NOT NULL,
+    [Password] NVARCHAR (50) NULL,
+    [Email]    NVARCHAR (50) NULL,
+    [Address]  NVARCHAR (50) NULL,
+    [MobileNo] NCHAR (10)    NULL,
+    PRIMARY KEY CLUSTERED ([userID] ASC)
+);
+CREATE TABLE [dbo].[PaymentDetails] (
+    [id]           INT           IDENTITY (1, 1) NOT NULL,
+    [CustomerId]   NVARCHAR (50) NULL,
+    [orderId]      NVARCHAR (50) NULL,
+    [date]         NVARCHAR (50) NULL,
+    [PaymentType]  NVARCHAR (50) NULL,
+    [bankName]     NVARCHAR (50) NULL,
+    [bankAccount]  NVARCHAR (50) NULL,
+    [creditCardNo] NVARCHAR (50) NULL,
+    [ExpiryDate]   NVARCHAR (50) NULL,
+    [total]        NVARCHAR (50) NULL,
+    [status]       NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+
+
+CREATE TABLE [dbo].[Customer_Orders] (
+    [orderid]      NVARCHAR (50) NOT NULL,
+    [BookID]       NVARCHAR (50) NULL,
+    [quantity]     INT           NULL,
+    [total]        INT           NULL,
+    [date]         NVARCHAR (50) NULL,
+    [status]       NVARCHAR (50) NULL,
+    [CustomerId]   NVARCHAR (50) NULL,
+    [DeliveryDate] NVARCHAR (50) NULL,
+    [DeliveryTime] NVARCHAR (50) NULL,
+    [month]        NVARCHAR (50) NULL,
+    [year]         NCHAR (10)    NULL,
+    PRIMARY KEY CLUSTERED ([orderid] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[books] (
+    [BookID]   INT            IDENTITY (1, 1) NOT NULL,
+    [Title]    NVARCHAR (MAX) NULL,
+    [Author]   NVARCHAR (50)  NULL,
+    [Pages]    INT            NULL,
+    [Price]    INT            NULL,
+    [Category] NVARCHAR (50)  NULL,
+    [Quantity] INT            NULL,
+    [Version]  NVARCHAR (50)  NULL,
+    [Date]     DATE           NULL,
+    [image]    NVARCHAR (MAX) NULL,
+    [ownerID]  NVARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([BookID] ASC)
+);
+
+   CREATE TABLE [dbo].Accounts
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [UserID] NVARCHAR(50) NULL, 
+    [AccountNumber] NVARCHAR(50) NULL, 
+    [Amount] INT NULL, 
+    [Date] NVARCHAR(50) NULL, 
+    [BankName] NVARCHAR(50) NULL
+)
